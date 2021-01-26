@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   
-   title = "bla";
+   title = "bla;}";
 
   OnToggle ():void{
     this.title = this.title =="" ? "bla" :"";
