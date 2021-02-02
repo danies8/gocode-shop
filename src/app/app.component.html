@@ -2,20 +2,8 @@
     <h1>Jackets</h1>
 
     <div class="sort">
-      <div class="collection-sort">
-        <label>Filter by:</label>
-        <select>
-          <option value="/">All Jackets</option>
-          <option value="/">2016</option>
-          <option value="/">jacket</option>
-          <option value="/">Jackets</option>
-          <option value="/">layers</option>
-          <option value="/">Obermeyer</option>
-          <option value="/">Roxy</option>
-          <option value="/">womens</option>
-        </select>
-      </div>
-
+    
+     <app-filter [categories] ="categories" (selectedCategory) ="onSelectedCategory($event)"></app-filter>
       <div class="collection-sort">
         <label>Sort by:</label>
         <select>
@@ -33,7 +21,7 @@
   </nav>
 
   <section class="products">
-    <div class="product-card" *ngFor="let product of products">
+    <div class="product-card" *ngFor="let product of filterProducts">
       <div class="product-image">
         <img
           src={{product.image}}
