@@ -1,8 +1,9 @@
 <div class="collection-sort">
     <label>Filter by:</label>
-    <select #c   (change)="onSelectedCategory(c.value)"> 
+    <select   (change)="onSelectedCategory()" [(ngModel)]="selectCategoryName"> 
+       <option value="">Select Category</option>
       <option *ngFor="let category of categories" [value]="category">
-           {{category}}
+       {{category}}
       </option>
     </select>
    </div>

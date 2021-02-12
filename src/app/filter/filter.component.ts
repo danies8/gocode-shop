@@ -1,8 +1,6 @@
 import { EventEmitter, Output } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
 
-import {product} from '../product';
-
 @Component({
   selector: 'app-filter',
   templateUrl: './filter.component.html',
@@ -12,12 +10,14 @@ export class FilterComponent implements OnInit {
 
   @Input() categories? :string[];
   @Output() selectedCategory = new EventEmitter();
+  selectCategoryName="";
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onSelectedCategory(categoryName:string){
-    this.selectedCategory.emit(categoryName);
+  onSelectedCategory(){
+    this.selectedCategory.emit(this.selectCategoryName);
   }
 }
