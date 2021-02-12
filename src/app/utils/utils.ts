@@ -1,4 +1,4 @@
-import { IProductSortOptions } from './models/productSort';
+import { IProductSortOptions } from '../models/productSort';
 
 export default class Utils {
   static groupBy(xs: any[], key: string): any[] {
@@ -8,6 +8,8 @@ export default class Utils {
     }, {});
   }
 
+
+  //https://stackoverflow.com/questions/8900732/sort-objects-in-an-array-alphabetically-on-one-property-of-the-array
   static sortOnString(arr: any[], prop: string, isDescending: boolean) {
     arr.sort(function (a, b) {
       if (!isDescending) {
@@ -30,6 +32,7 @@ export default class Utils {
     });
   }
 
+  //https://stackoverflow.com/questions/8900732/sort-objects-in-an-array-alphabetically-on-one-property-of-the-array
   static sortOnNumber(arr: any[], isDescending: boolean) {
     arr.sort(function (a, b) {
       if (!isDescending) {

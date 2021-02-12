@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './models/product';
 import { products } from '../data/products';
-import utils from './utils';
+import utils from './utils/utils';
 import { ProductService } from './services/product.service';
 import { IProductSortOptions } from './models/productSort';
 import { ProductSortService } from './services/product-sort.service';
@@ -23,12 +23,13 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getProducts();
+    this.categories = Object.keys(utils.groupBy(this.products, 'category'));
+  }
+  getProducts(): void {
+    this.products=[];
     this.producService.getProducts().subscribe((products) => {
-      (this.products = products),
-        (this.filterProducts = this.products),
-        (this.categories = Object.keys(
-          utils.groupBy(this.products, 'category')
-        ));
+      (this.products = products), (this.filterProducts = this.products);
     });
   }
 
@@ -42,6 +43,8 @@ export class AppComponent implements OnInit {
     }
   }
   onSelectedSortCategory(sortCategoryId: number) {
+    this.getProducts();
+
     if (+sortCategoryId === 0) {
       this.filterProducts = this.products;
     } else {
@@ -55,13 +58,12 @@ export class AppComponent implements OnInit {
       let key = obj.key;
       let isDescending = obj.desc;
       let type = obj.type;
-      if(type == "string"){
-          utils.sortOnString(this.products, key, isDescending);
-      }
-      else{
+      if (type === 'string') {
+        utils.sortOnString(this.products, key, isDescending);
+      } else {
         utils.sortOnNumber(this.products, isDescending);
       }
-       this.filterProducts = this.products;
+      this.filterProducts = this.products;
     }
   }
 }

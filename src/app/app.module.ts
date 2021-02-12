@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FilterComponent } from './filter/filter.component';
+import { FilterComponent } from './filterProduct/filter.component';
 import { FormsModule } from '@angular/forms';
-import { MessageComponent } from './messages/message.component';
-import { SortComponent } from './sort/sort.component';
+import { MessageComponent } from './appMessages/message.component';
+import { SortComponent } from './sortProduct/sort.component';
 
 @NgModule({
   declarations: [
