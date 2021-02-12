@@ -1,0 +1,9 @@
+<div class="collection-sort" >
+    <label>Sort by:</label>
+    <select   (change)="onSelectedSortProductName()" [(ngModel)]="sortCategoryId"> 
+       <option value="0">Select Sort</option>
+       <option *ngFor="let productSortOption of productSortOptions" [value]="productSortOption.id">
+        {{productSortOption.name}}
+       </option>
+     </select>
+  </div>

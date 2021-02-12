@@ -1,5 +1,6 @@
 import { EventEmitter, Output } from '@angular/core';
 import { Component, Input, OnInit } from '@angular/core';
+import { MessageService } from '../services/message.service';
 
 @Component({
   selector: 'app-filter',
@@ -12,12 +13,13 @@ export class FilterComponent implements OnInit {
   @Output() selectedCategory = new EventEmitter();
   selectCategoryName="";
 
-  constructor() { }
+  constructor(private messageService:MessageService) { }
 
   ngOnInit(): void {
   }
 
   onSelectedCategory(){
+    this.messageService.add(`Filter component:on selected category: ${this.selectCategoryName}`)
     this.selectedCategory.emit(this.selectCategoryName);
   }
 }
