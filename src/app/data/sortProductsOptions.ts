@@ -1,4 +1,4 @@
-import { IProductSortOptions } from '../app/models/productSort';
+import { IProductSortOptions } from '../models/productSort';
 
 export const sortProductsOptions: IProductSortOptions[] = [
   {

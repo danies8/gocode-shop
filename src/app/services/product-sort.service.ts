@@ -3,7 +3,7 @@ import { Observable, of } from 'rxjs';
 
 import { IProductSortOptions } from '../models/productSort';
 import { MessageService } from './message.service';
-import {sortProductsOptions} from '../../data/sortProductsOptions'
+import {sortProductsOptions} from '../data/sortProductsOptions'
 
 @Injectable({
   providedIn: 'root'

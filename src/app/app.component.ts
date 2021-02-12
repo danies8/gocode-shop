@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './models/product';
-import { products } from '../data/products';
+import { products } from './data/products';
 import utils from './utils/utils';
 import { ProductService } from './services/product.service';
 import { IProductSortOptions } from './models/productSort';
@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   products: IProduct[] = [];
   filterProducts: IProduct[] = [];
   categories: string[] = [];
+  selectedCategoryName:string="";
+  sortCategoryId: string = "0";
 
   constructor(
     private producService: ProductService,
@@ -43,10 +45,8 @@ export class AppComponent implements OnInit {
     }
   }
   onSelectedSortCategory(sortCategoryId: number) {
-    this.getProducts();
-
-    if (+sortCategoryId === 0) {
-      this.filterProducts = this.products;
+     if (+sortCategoryId === 0) {
+     this.filterProducts = this.products;
     } else {
       let sortOptionsArr: IProductSortOptions[] = [];
       this.productSortService
@@ -59,11 +59,11 @@ export class AppComponent implements OnInit {
       let isDescending = obj.desc;
       let type = obj.type;
       if (type === 'string') {
-        utils.sortOnString(this.products, key, isDescending);
+        utils.sortOnString(this.filterProducts, key, isDescending);
       } else {
-        utils.sortOnNumber(this.products, isDescending);
+        utils.sortOnNumber(this.filterProducts,key, isDescending);
       }
-      this.filterProducts = this.products;
+      //this.filterProducts = this.products;
     }
   }
 }
