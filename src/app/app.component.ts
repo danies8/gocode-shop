@@ -59,11 +59,11 @@ export class AppComponent implements OnInit {
       let isDescending = obj.desc;
       let type = obj.type;
       if (type === 'string') {
-        utils.sortOnString(this.filterProducts, key, isDescending);
+        utils.sortOnString(this.products, key, isDescending);
       } else {
-        utils.sortOnNumber(this.filterProducts,key, isDescending);
+        utils.sortOnNumber(this.products,key, isDescending);
       }
-      //this.filterProducts = this.products;
+      this.filterProducts = this.products;
     }
   }
 }
