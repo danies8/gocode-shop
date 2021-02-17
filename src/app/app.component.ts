@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
 import { IProduct } from './models/product';
-import { products } from './data/products';
 import utils from './utils/utils';
 import { ProductService } from './services/product.service';
 import { IProductSortOptions } from './models/productSort';
@@ -18,6 +17,7 @@ export class AppComponent implements OnInit {
   categories: string[] = [];
   selectedCategoryName:string="";
   sortCategoryId: string = "0";
+  showProductDetails=false;
 
   constructor(
     private producService: ProductService,
@@ -66,4 +66,8 @@ export class AppComponent implements OnInit {
       //this.filterProducts = this.products;
     }
   }
+
+  onProductClick(){
+    this.showProductDetails = this.producService.showProductDetails = true;
+     }
 }

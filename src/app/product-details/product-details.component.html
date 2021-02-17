@@ -1,0 +1,22 @@
+<input type="button" (click)="back()" value="Back to product List" />
+<section class="products">
+    <div class="product-card">
+    <h1>Product Details</h1>
+    <hr>
+    <div class="product-details-info">
+      Id :{{ product?.id }} <br /> <br />
+      <h5>{{ product?.category }} </h5> <br />
+      <h6>{{ product?.title }}</h6>  <br />
+      <p>{{ product?.description }}</p> <br />
+      {{ product?.price | currency }} <br /> <br />
+      Open Date :{{ product?.openDate |date }} <br /> <br />
+      Is Favorite :{{ product?.isFavorite ===0 ? "True":"False"}} <br /> <br />
+      Sell No :{{ product?.sellNo }} <br /> <br />
+    </div>
+    <div class="product-image">
+      <img src="{{ product?.image }}" /> <br />
+    </div>
+   
+  </div>
+</section>
+

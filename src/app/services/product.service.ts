@@ -10,10 +10,17 @@ import { MessageService } from './message.service';
 })
 export class ProductService {
 
+  showProductDetails=false;
+
   constructor(private messageService:MessageService) { }
 
   getProducts():Observable<IProduct[]>{
       this.messageService.add("Product service:getProducts");
       return of(products);
   }
+
+  getProduct(productId:number):Observable<IProduct>{
+    this.messageService.add("Product service:getProduct");
+    return of(products.filter(product => product.id === +productId)[0]);
+}
 }

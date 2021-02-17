@@ -1,7 +1,10 @@
 
 <app-message></app-message>
+<br/>
+<br/>
 
-<nav class="product-filter">
+<div *ngIf="!showProductDetails">
+<nav class="product-filter" >
     <h1>Jackets</h1>
 
     <div class="sort">
@@ -13,17 +16,21 @@
   </nav>
 
   <section class="products">
-    <div class="product-card" *ngFor="let product of filterProducts">
-      <div class="product-image">
+    <div class="product-card" *ngFor="let product of filterProducts" >
+      <div class="product-image" >Product
         <img
           src={{product.image}}
-        />
-      </div>
+        >
+       </div>
       <div class="product-info">
-        <h5>{{product.title}}</h5>
+        <h5><a routerLink="/products/{{product.id}}" (click)="onProductClick()">{{product.title}}</a></h5>
         <h6>{{product.price |currency}}</h6>
               </div>
     </div>
-
-  
+   
   </section>
+  </div>
+  <section *ngIf="showProductDetails">
+    <router-outlet></router-outlet>
+  </section>
+  
