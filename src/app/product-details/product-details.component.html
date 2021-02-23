@@ -1,10 +1,9 @@
 <input type="button" (click)="back()" value="Back to product List" />
 <section class="products">
     <div class="product-card">
-    <h1>Product Details</h1>
+    <h1>Product Details for id {{ product?.id }}</h1>
     <hr>
     <div class="product-details-info">
-      Id :{{ product?.id }} <br /> <br />
       <h5>{{ product?.category }} </h5> <br />
       <h6>{{ product?.title }}</h6>  <br />
       <p>{{ product?.description }}</p> <br />
